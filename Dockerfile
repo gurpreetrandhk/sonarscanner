@@ -1,4 +1,4 @@
-FROM  eclipse-temurin:8-jdk
+FROM tomcat:9
 EXPOSE 8082
-ADD target/petclinic.war petclinic.war
-ENTRYPOINT ["java","-jar","/petclinic.war"]
+COPY target/petclinic.war /usr/local/tomcat/webapps/petclinic.war
+CMD ["catalina.sh", "run"]
